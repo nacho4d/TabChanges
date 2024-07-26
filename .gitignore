@@ -1,0 +1,37 @@
+# IntelliJ IDEA stuff
+.idea
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/build
+/buildSrc/build
+/shared/build
+/androidApp/build
+/desktopApp/build
+/composables/build
+/webApp/build
+/captures
+.externalNativeBuild
+.cxx
+
+# macOS stuff
+.DS_Store
+
+# Xcode stuff
+UserInterfaceState.xcuserstate
+.build/
+xcuserdata/
+
+# Swift Package Manager stuff
+.swiftpm/
+
+# Test DB stuff
+shared/default.realm
+shared/default.realm.lock
+shared/default.realm.management/
