@@ -41,22 +41,15 @@ struct ContentView3: View {
     }
 }
 
-/// グローバルメニューのタブ
 enum TabIndex: Hashable {
-    /// ホーム
     case home
-    /// 借入
     case loan
-    /// 借入返済
     case loanReturn
-    /// メニュー
-    case menu
 }
 
 
 struct MainFooterTabView: View {
     @State var tabIndex: TabIndex = .home
-    // First screen needs server data so will be loading at start. Hence, first state is "tabs disabled"
     @State var canChangeTabs = false
 
     private var tabSelection: Binding<TabIndex> {
@@ -106,14 +99,12 @@ struct MainFooterTabView: View {
                 }.tag(TabIndex.loanReturn)
         }
         .onReceive(
-            // タブ切り替えを有効にする通知（NotificationCenter）を設定
             NotificationCenter.default.publisher(for: Notification.Name("enableTabChanging"))
         ) { notification in
             print("enableTabChanging canChangeTabs = true")
             canChangeTabs = true
         }
         .onReceive(
-            // タブ切り替えを無効にする通知（NotificationCenter）を設定
             NotificationCenter.default.publisher(for: Notification.Name("disableTabChanging"))
         ) { notification in
             print("disableTabChanging canChangeTabs = false")
@@ -121,8 +112,6 @@ struct MainFooterTabView: View {
         }
     }
 }
-
-
 
 #Preview {
     MainFooterTabView()
